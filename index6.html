@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活动页</title>
+    <link rel="stylesheet" href="css/index6.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">回到首页</a>
+    </header>
+    <div class="banner">
+        <div class="banner-in">
+            <div class="banner-top"></div>
+            <div class="banner-bottom"></div>
+        </div>
+
+    </div>
+    <div class="connect">
+        <div class="connect-in">
+            <ul>
+
+            </ul>
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer-in">
+            <div class="footer-left">
+
+            </div>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="#">品牌简介</a></dd>
+                <dd><a href="#">市场合作</a></dd>
+                <dd><a href="#">招贤纳士</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="#">品牌简介</a></dd>
+                <dd><a href="#">市场合作</a></dd>
+                <dd><a href="#">招贤纳士</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="#">品牌简介</a></dd>
+                <dd><a href="#">市场合作</a></dd>
+                <dd><a href="#">招贤纳士</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="#">品牌简介</a></dd>
+                <dd><a href="#">市场合作</a></dd>
+                <dd><a href="#">招贤纳士</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <dl>
+                <dt>关于我们</dt>
+                <dd><a href="#">品牌简介</a></dd>
+                <dd><a href="#">市场合作</a></dd>
+                <dd><a href="#">招贤纳士</a></dd>
+                <dd><a href="#">联系我们</a></dd>
+            </dl>
+            <div class="footer-right">
+                <a href="#" class="fenxiang"></a>
+                <a href="#" class="weibo"></a>
+                <a href="#" class="weixin"></a>
+            </div>
+        </div>
+
+    </footer>
+    <div class="footer-last">
+        husad sadhsaifhad safdhifhoiad asdhsaifh
+    </div>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery.cookie.js"></script>
+    <script>
+
+        function ShopCar() { }
+        $.extend(ShopCar.prototype, {
+            init: function (opts) {
+
+                this.main = $(".connect-in ul");
+                this.loadJson()
+                    .then(function (res) {
+
+                        this.json = res.subjects;
+                        this.renderPage();
+                    })
+            },
+            loadJson: function () {
+                var opt = {
+                    url: "http://localhost:8080/jso/douban.json",
+                    data: { start: 0, count: 20 },
+                    context: this
+                };
+                return $.ajax(opt);
+            },
+            renderPage: function () {
+                var html = "";
+                for (var i = 0; i < this.json.length; i++) {
+                    html += `<li>
+                                <img src="${this.json[i].images.small}" alt="">
+                                <h3>${this.json[i].title}</h3>
+                                <a href="index5.html#${this.json[i].id}";>购买</a>
+                            </li> `;
+                }
+                this.main.html(html);
+            },
+
+        })
+
+        var shopCar = new ShopCar();
+        shopCar.init();
+
+    </script>
+
+</body>
+
+</html>
